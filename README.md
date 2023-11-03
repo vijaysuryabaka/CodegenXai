@@ -16,7 +16,7 @@ Before you begin, ensure you have Node.js and npm installed. Then, follow these 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/CodegenXai.git
+git clone https://github.com/vijaysuryabaka/CodegenXai.git
 cd CodegenXai
 ```
 for installing the pacakages:
