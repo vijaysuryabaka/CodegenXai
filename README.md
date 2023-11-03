@@ -33,6 +33,10 @@ npm install usellm
 Include instructions on how to set up and connect to the "usellm" LLM service. If there are any API keys or tokens involved, remind users to keep them secure and not to share them publicly.
 Please follow the official [usellm documentation](https://usellm.org/docs) to install usellm and use it in your Next.js application.
 
+How the LLM works:
+![Flow Diagram](public/flow.png)
+
+
 create a file:
 .env.local
 ```
