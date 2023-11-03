@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import React from 'react';
 import AceEditor from 'react-ace';
 import "./page.css"
+import "app/globals.css"
 
 import 'ace-builds/src-noconflict/mode-javascript'; // For JavaScript mode
 import 'ace-builds/src-noconflict/theme-monokai'; // Monokai theme
@@ -38,6 +39,8 @@ export default function Home() {
   };
 
   const handleClick = async () => {
+    // setIsSubmitted(true)
+    
     try {
       await llm.chat({
         messages: [
@@ -54,8 +57,6 @@ export default function Home() {
     } catch (error) {
       console.error("Something went wrong!", error);
     }
-
-
   };
 
   
@@ -93,10 +94,10 @@ export default function Home() {
 
     return (
 <div className="dynamic-bg min-h-screen mx-auto my-8 max-w-9xl p-6 bg-slate-100 rounded-xl">
-      <h1 className="text-center mb-8 text-4xl font-bold text-blue-800 w-full">CODE OPTIMIZATION</h1>
+      <h1 className="text-center mb-8 text-4xl font-extrabold text-blue-800 w-full">CODE OPTIMIZATION</h1>
       
       
-      <div className="flex w-full justify-center align-center">
+      <div className="flex w-full justify-center">
       
       <div className={`mt-8 bg-white rounded-lg shadow-2xl p-8 max-w-5xl ml-4 relative bg-black-800 flex-1 ${isSubmitted ? 'moveToLeft' : ''}`}> 
                 {/* Select Language */}
@@ -172,7 +173,7 @@ export default function Home() {
               animate={{scaleX:1}}
               exit={{scaleX:0}}
               transition={{duration:2, ease:[0.22, 1, 0.36, 1]}}>
-  <h2 className="text-2xl font-bold mb-6 text-blue-800 dark:text-white">Solution:</h2>
+  <h2 className="text-2xl font-bold mb-6 text-blue-80">Solution:</h2>
     {result.split(/```(.*?)```/s).map((segment, index) => {
       if (index % 2 === 1) { // This checks if the segment is inside triple quotes, thus is code
         return (

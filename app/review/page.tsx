@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import React from 'react';
 import AceEditor from 'react-ace';
 import "./page.css"
+import "app/globals.css"
 
 import 'ace-builds/src-noconflict/mode-javascript'; // For JavaScript mode
 import 'ace-builds/src-noconflict/theme-monokai'; // Monokai theme
@@ -111,7 +112,7 @@ export default function Home() {
 
     return (
 <div className="dynamic-bg min-h-screen mx-auto my-8 max-w-9xl p-6 bg-slate-100 rounded-xl">
-      <h1 className="text-center mb-8 text-4xl font-bold text-blue-800 w-full">CODE REVIEW X AI</h1>
+      <h1 className="text-center mb-8 text-4xl font-extrabold text text-blue-800 w-full">CODE REVIEW X AI</h1>
       
       
       <div className="flex w-full justify-center align-center">

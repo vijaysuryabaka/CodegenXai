@@ -75,7 +75,6 @@ body {
   }
   
   .dynamic-bg {
-   
     background-size: 400% 400%;
     animation: Gradient 30s ease infinite;
 }

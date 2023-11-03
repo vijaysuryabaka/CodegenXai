@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import React from 'react';
 import AceEditor from 'react-ace';
 import "./page.css"
+import "app/globals.css"
 
 import 'ace-builds/src-noconflict/mode-javascript'; // For JavaScript mode
 import 'ace-builds/src-noconflict/theme-monokai'; // Monokai theme
@@ -25,16 +26,28 @@ export default function Home() {
   const [result, setResult] = useState("");
   const [copied, setCopied] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-  const [isOtherSelected, setIsOtherSelected] = useState(false);
+  const [isOtherFrom, setIsOtherFrom] = useState(false);
+  const [isOtherTo, setIsOtherTo] = useState(false);
 
-  const handleLanguageChange = (e) => {
+  const handleFromChange = (e) => {
     const selectedValue = e.target.value;
     setLan(selectedValue);
 
     if (selectedValue === "Other") {
-      setIsOtherSelected(true);
+      setIsOtherFrom(true);
     } else {
-      setIsOtherSelected(false);
+      setIsOtherFrom(false);
+    }
+  };
+
+  const handleToChange = (e) => {
+    const selectedValue = e.target.value;
+    settLan(selectedValue);
+
+    if (selectedValue === "Other") {
+      setIsOtherTo(true);
+    } else {
+      setIsOtherTo(false);
     }
   };
 
@@ -62,6 +75,8 @@ export default function Home() {
             Analyze the time complexity of the original source code and the converted code.
             Analyze the space complexity of the original source code and the converted code.
             Output Display:
+            converted code eg: use bash for the code segment seperate the code segment using triple backtick for the complete code segment
+          
             Display the converted, optimized code.
             it should also provide the time and space complexity of the other language and original language code 
             Display a side-by-side comparison of time and space complexities for the original and converted code.
@@ -74,7 +89,7 @@ export default function Home() {
     
             `,  
           },
-          { role: "user", content: `Language: ${lan} \n\nCode: ${code}` },
+          { role: "user", content: `Language: ${tlan} \n\nCode: ${code}` },
         ],
         max_tokens: 5000,
         stream: true,
@@ -120,21 +135,36 @@ export default function Home() {
 
     return (
 <div className="dynamic-bg min-h-screen mx-auto my-8 max-w-9xl p-6 bg-slate-100 rounded-xl">
-      <h1 className="text-center mb-8 text-4xl font-bold text-blue-800 w-full">CODE CONVERTOR X AI</h1>
+      <h1 className="text-center mb-8 text-4xl font-extrabold text-blue-800 w-full">CODE CONVERTOR X AI</h1>
       
       
-      <div className="flex w-full justify-center align-center">
+      <div className="flex w-full justify-center">
       
       <div className="mt-8 bg-white rounded-lg shadow-2xl p-8 max-w-5xl ml-4 relative bg-black-800 flex-1"> 
                 {/* Select Language */}
-                <div className="rounded-xl overflow-hidden  p-8 bg-white max-w-xl w-1/2 mr-4"> 
+                <div className="flex justify-evenly rounded-xl overflow-hidden p-8 w-full mr-4 bg-white"> 
                    
                     <select
                         value={lan}
-                        onChange={handleLanguageChange}
-                        className="w-full rounded-md border p-4 text-xl text-black shadow-sm outline-none focus:ring-2 focus:ring-blue-500"
+                        onChange={handleFromChange}
+                        className="w-1/4 rounded-md border p-4 text-xl text-black shadow-sm outline-none focus:ring-2 focus:ring-blue-500"
                     >
-                        <option value="">Select a language</option>
+                        <option value="">From</option>
+                        <option value="Python">Python</option>
+                        <option value="Java">Java</option>
+                        <option value="R">R</option>
+                        <option value="C#">C#</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="C++">C++</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <select
+                        value={tlan}
+                        onChange={handleToChange}
+                        className="w-1/4 rounded-md border p-4 text-xl text-black shadow-sm outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                        <option value="">To</option>
                         <option value="Python">Python</option>
                         <option value="Java">Java</option>
                         <option value="R">R</option>
@@ -146,17 +176,29 @@ export default function Home() {
                 </div>
 
                 {/* Other Language Input */}
-                {isOtherSelected && (
-                    <div className="mb-6">
-                        <label htmlFor="otherLanguage" className="block mb-2 font-bold text-lg dark:text-white">Specify Language</label>
-                        <input
-                            value={lan}
-                            onChange={(e) => setLan(e.target.value)}
-                            placeholder="Type your language"
-                            className="w-full rounded-md border p-4 text-xl text-black shadow-sm outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
-                )}
+                <div className="flex justify-evenly">
+                  {isOtherFrom && (
+                      <div className="mb-6">
+                          <label htmlFor="otherLanguage" className="block mb-2 font-bold text-lg">From</label>
+                          <input
+                              onChange={(e) => setLan(e.target.value)}
+                              placeholder="Enter Language"
+                              className="w-10/12 rounded-md border p-4 text-xl text-black shadow-sm outline-none focus:ring-2 focus:ring-blue-500"
+                          />
+                      </div>
+                  )}
+
+                  {isOtherTo && (
+                      <div className="mb-6">
+                          <label htmlFor="otherLanguage" className="block mb-2 font-bold text-lg">To</label>
+                          <input
+                              onChange={(e) => setLan(e.target.value)}
+                              placeholder="Enter Language"
+                              className="w-10/12 rounded-md border p-4 text-xl text-black shadow-sm outline-none focus:ring-2 focus:ring-blue-500"
+                          />
+                      </div>
+                  )}
+                </div>
           <div className="editor-container mb-6 relative">
                     <div className="flex justify-between items-center bg-gray-800 text-white p-2 rounded-t-md">
                         <span>{lan || 'Select a language'}</span>
@@ -207,7 +249,7 @@ export default function Home() {
           <div className="code-block p-4 rounded-md mb-4">
 
            <div className="flex justify-between items-center bg-gray-800 text-white p-2 rounded-t-md">
-                        <span>{lan || 'Select a language'}</span>
+                        <span>{tlan || 'Select a language'}</span>
                         <button onClick={() => copyToClipboard(segment)} className="bg-grey-700 px-3 py-1 rounded-md hover:bg-grey-800 transition duration-300">Copy Code</button>
                     </div>
     {copied && <span className="absolute top-4 left-4 bg-green-600 text-white rounded-md p-3">Copied!</span>}

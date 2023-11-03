@@ -8,26 +8,19 @@ import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { Docs, Github, Times } from "./icons";
-import { Twitter } from "./icons";
-import { Discord } from "./icons";
-import { Metadata } from "next";
 
-import { Roboto } from 'next/font/google'
- 
-const roboto = Roboto({
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  display: 'swap',
-})
 
-export const metadata: Metadata = {
-  title: "Next.js ",
-  description:
-    "A simple and powerful Next.js template featuring authentication and user management powered by Clerk.",
-  openGraph: { images: ["/og.png"] },
-};
+// import { Light300 } from 'next/font/google';
+
+// const light300Font = Light300({
+//   weight: ['300'],
+//   style: ['normal'],
+//   subsets: ['latin'],
+//   display: 'swap',
+// });
+
+
+
 
 export default function RootLayout({
   children,
@@ -53,40 +46,48 @@ export default function RootLayout({
           },
         }}
       >
-        <body className={`${roboto.className} min-h-screen flex flex-col`}>
-          <header className="header-color flex items-center h-20 gap-4 px-4 rounded-b bg-slate-50">
-            <Link href="/" className="flex items-center h-20 gap-2 sm:gap-4">
-              <Image
-                src="/Frame 5.png"
-                alt="Clerk Logo"
-                width={200}
-                height={32}
-                priority
-              />
+    <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" />
+    </head>
+    {/* <body className={`${light300Font.className} min-h-screen flex flex-col`}> */}
+    <body className={`min-h-screen flex flex-col`}>
+          <header className="header-color flex justify-between items-center h-20 gap-4 px-4 rounded-b bg-slate-50">
+            <div>
+              <Link href="/" className="flex items-center h-20 gap-2 sm:gap-4">
+                <Image
+                  src="/Frame 5.png"
+                  alt="Clerk Logo"
+                  width={200}
+                  height={32}
+                  priority
+                />
 
-            </Link>
-
-
-            <div className="grow" />
-
-              
+              </Link>
+            </div>
+            
             <div className="flex items-center text-black">
-              <div className="px-5 rounded-xl hover:bg-yellow-300 transition duration-300 shadow-md mr-3 height-100">
+              <div className="px-5 rounded-xl hover:bg-black hover:text-white transition duration-300 mr-3">
                 <Link href="/optimizer">Optimizer</Link>
               </div>
-              <div className="px-5 rounded-xl hover:bg-yellow-300 transition duration-300 shadow-md mr-3">
+              <div className="px-5 rounded-xl hover:bg-yellow-300 transition duration-300 mr-3">
                 <Link href="/review">Review</Link>
               </div>
-              <div className="px-5 rounded-xl hover:bg-yellow-300 transition duration-300 shadow-md mr-3">
+              <div className="px-5 rounded-xl hover:bg-black hover:text-white transition duration-300 mr-3">
               <Link href="/summarizer">Summarizer</Link>
               </div>
-              <div className="px-5 rounded-xl hover:bg-yellow-300 transition duration-300 shadow-md mr-3">
+              <div className="px-5 rounded-xl hover:bg-yellow-300 transition duration-300 mr-3">
               <Link href="/convertor">Convertor</Link>
               </div>
-              <div className="px-5 rounded-xl hover:bg-yellow-300 transition duration-300 shadow-md mr-3">
+              <div className="px-5 rounded-xl hover:bg-black hover:text-white duration-300 mr-3">
               <Link href="">Community</Link>
               </div>
             </div>
+
+
+            {/* <div className="grow" />    */}
+         
             <SignedIn>
               <div className="hidden sm:block">
                 <OrganizationSwitcher afterCreateOrganizationUrl="/dashboard" />
@@ -106,7 +107,7 @@ export default function RootLayout({
               <UserButton afterSignOutUrl="/" />
             </SignedIn>
           </header>
-          <main className="grow">{children}</main>
+          <main className="grow mt-5">{children}</main>
           
         </body>
       </ClerkProvider>

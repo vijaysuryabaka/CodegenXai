@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/*
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+  /*
 
 body {
     font-family: 'Arial', sans-serif;
@@ -78,7 +80,7 @@ body {
     font-size: 1.2rem;
   }
   */
-  .header-color{
+.header-color{
     margin: 0 auto;
     width: 80%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
@@ -97,5 +99,11 @@ body {
     padding: 1rem;
 }
 body{
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+header{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: small;
+  font-weight: bold;
 }
