@@ -1,0 +1,105 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Main Container */
+  .min-h-screen {
+    padding: 2rem;
+  }
+  
+  /* Header */
+  .text-center.text-3xl {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: #30475e;
+  }
+  
+  /* Code Review Container */
+  .editor-container {
+    border: 1px solid #d1d5db;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+  
+  /* Input Fields */
+  input.rounded {
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Ace Editor */
+  #code-editor {
+    font-size: 1.5rem;
+  }
+  
+  /* Submit Button */
+  button.rounded.bg-blue-600 {
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  /* Review Result Container */
+  .mt-6.bg-white {
+    padding: 1.5rem;
+  }
+  
+  /* Review Result Header */
+  .text-xl.font-bold {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #30475e;
+  }
+  
+  /* Review Result Text */
+  pre.whitespace-pre-wrap {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    
+  }
+  
+  /* Copy Button */
+  button.absolute.top-2.right-2 {
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  /* Copied Notification */
+  span.absolute.top-2.left-2 {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .dynamic-bg {
+   
+    background-size: 400% 400%;
+    animation: Gradient 30s ease infinite;
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.rounded-xl {
+    border-radius: 25px; /* This will provide a more rounded effect */
+}
+
+button:hover, button:focus, select:hover, select:focus {
+    transform: scale(1.05); /* Add a subtle zoom effect on hover/focus */
+}
+
+button, select {
+    transition: all 0.3s ease; /* Smoothens the hover/focus effect */
+}

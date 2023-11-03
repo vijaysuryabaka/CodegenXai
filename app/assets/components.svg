@@ -1,0 +1,8 @@
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Adding an image -->
+  <image x="0" y="0" width="300" height="200" xlink:href="your-image.png" />
+
+  <!-- Adding a rectangle for reference -->
+  <rect x="50" y="50" width="200" height="100" fill="none" stroke="blue" stroke-width="2" />
+</svg>
+

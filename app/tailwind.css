@@ -1,0 +1,20 @@
+/* tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom.css */
+.editor-container {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    overflow: hidden;
+}
+
+.code-block {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    background-color: #1a202c;
+    padding: 1rem;
+}
+
+/* You can add more custom styles here */

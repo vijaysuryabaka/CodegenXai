@@ -1,0 +1,33 @@
+{
+  "name": "nextjs-clerk-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^4.21.8",
+    "@types/node": "20.1.4",
+    "@types/react-dom": "18.2.4",
+    "autoprefixer": "10.4.14",
+    "classnames": "^2.3.2",
+    "framer-motion": "^10.16.4",
+    "next": "^13.5.5",
+    "openai": "^4.14.2",
+    "postcss": "^8.4.31",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "react": "^18.2.0",
+    "react-ace": "^10.1.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.2",
+    "typeface-roboto": "^1.1.13",
+    "usellm": "^0.13.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.29",
+    "typescript": "^5.2.2"
+  }
+}
