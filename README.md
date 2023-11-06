@@ -34,7 +34,7 @@ Include instructions on how to set up and connect to the "usellm" LLM service. I
 Please follow the official [usellm documentation](https://usellm.org/docs) to install usellm and use it in your Next.js application.
 
 How the LLM works:
-![Flow Diagram](public/flow.png)
+![Flow Diagram](public/floww.png)
 
 
 create a file:
